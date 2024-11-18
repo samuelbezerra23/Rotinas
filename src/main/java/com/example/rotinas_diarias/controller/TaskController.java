@@ -9,11 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/tasks")
+@RequestMapping("/api/taskmodel")
 public class TaskController {
 
     @Autowired
-    private TaskService taskService;
+    public TaskService taskService;
 
     @PostMapping
     public ResponseEntity<TaskModel> createTask(@RequestBody TaskModel taskModel) {
@@ -23,21 +23,21 @@ public class TaskController {
 
     @GetMapping
     public ResponseEntity<List<TaskModel>> getAllTasks() {
-        List<TaskModel> tasks = taskService.getAllTasks();
-        return ResponseEntity.ok(tasks);
+        List<TaskModel> taskModels = taskService.getAllTasks();
+        return ResponseEntity.ok(taskModels);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<TaskModel> getTaskById(@PathVariable Long id) {
         return taskService.getTaskById(id)
-            .map(task -> ResponseEntity.ok(task))
+            .map(taskModel -> ResponseEntity.ok(taskModel))
             .orElse(ResponseEntity.notFound().build());
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<TaskModel> updateTask(@PathVariable Long id, @RequestBody TaskModel updatedTask) {
-        TaskModel task = taskService.updateTask(id, updatedTask);
-        return task != null ? ResponseEntity.ok(task) : ResponseEntity.notFound().build();
+        TaskModel taskModel = taskService.updateTask(id, updatedTask);
+        return taskModel != null ? ResponseEntity.ok(taskModel) : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")

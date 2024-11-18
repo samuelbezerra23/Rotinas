@@ -6,8 +6,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.time.LocalDate;
 
+// import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class TaskModel {
+    // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    // private LocalDate timestamp;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -49,6 +53,7 @@ public class TaskModel {
 
     public void setDataTermino(LocalDate dataTermino) {
         this.dataTermino = dataTermino;
+        
     }
 
     public void setStatus(String status) {
@@ -59,14 +64,14 @@ public class TaskModel {
         this.prioridade = prioridade;
     }
 
-    public String getstatus() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getstatus'");
-    }
+    // public String getstatus() {
+        
+    //     throw new UnsupportedOperationException("Unimplemented method 'getstatus'");
+    // }
 
-    public String getprioridade() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getprioridade'");
-    }
+    // public String getprioridade() {
+         
+    //     throw new UnsupportedOperationException("Unimplemented method 'getprioridade'");
+    // }
 }
 

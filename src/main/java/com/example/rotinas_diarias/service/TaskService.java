@@ -33,13 +33,13 @@ public class TaskService {
 
     public TaskModel updateTask(Long id, TaskModel updatedTask) {
         return taskRepository.findById(id)
-            .map(task -> {
-                task.setDescricao(updatedTask.getDescricao());
-                task.setDataInicio(updatedTask.getDataInicio());
-                task.setDataTermino(updatedTask.getDataTermino());
-                task.setStatus(updatedTask.getstatus());
-                task.setPrioridade(updatedTask.getprioridade());
-                return taskRepository.save(task);
+            .map(taskModel -> {
+                taskModel.setDescricao(updatedTask.getDescricao());
+                taskModel.setDataInicio(updatedTask.getDataInicio());
+                taskModel.setDataTermino(updatedTask.getDataTermino());
+                taskModel.setStatus(updatedTask.getStatus());
+                taskModel.setPrioridade(updatedTask.getPrioridade());
+                return taskRepository.save(taskModel);
             }).orElse(null);
     }
     
