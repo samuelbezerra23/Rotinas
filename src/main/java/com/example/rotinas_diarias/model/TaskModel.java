@@ -63,15 +63,4 @@ public class TaskModel {
     public void setPrioridade(String prioridade) {
         this.prioridade = prioridade;
     }
-
-    // public String getstatus() {
-        
-    //     throw new UnsupportedOperationException("Unimplemented method 'getstatus'");
-    // }
-
-    // public String getprioridade() {
-         
-    //     throw new UnsupportedOperationException("Unimplemented method 'getprioridade'");
-    // }
 }
-
