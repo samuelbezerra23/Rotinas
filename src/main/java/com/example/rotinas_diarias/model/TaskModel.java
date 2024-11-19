@@ -6,12 +6,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.time.LocalDate;
 
-// import com.fasterxml.jackson.annotation.JsonFormat;
-
 @Entity
 public class TaskModel {
-    // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    // private LocalDate timestamp;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
